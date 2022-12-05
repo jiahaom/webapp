@@ -35,4 +35,4 @@ if pw:
     st.info(temp_pw, icon = "ℹ️")
 
 st.write(""" ---""")
-st.write("""## Excel Encryption""")
+# st.write("""## Excel Encryption""")
