@@ -218,7 +218,7 @@ if (Book is not None) and (Uni is not None):
             csv = convert_df(result)
 
             st.download_button(
-                label="Download data as CSV",
+                label="Save results as CSV",
                 data=csv,
                 file_name='Final_list.csv',
                 mime='text/csv',
