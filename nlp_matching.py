@@ -27,6 +27,8 @@ with st.expander("To-Do-List"):
 
     ✅Publish App；
     
+    📌Excel Support;
+    
     📌Optimaise Visualization;
     
     📌Add Matching Candidates;
@@ -36,7 +38,7 @@ with st.expander("To-Do-List"):
 
 # File upload
 st.write("""## Uncertain work""")
-Uni = st.file_uploader("Choose a table that needs to match")
+Uni = st.file_uploader("Choose a table that needs to match (.csv)")
 if Uni is not None:
     Uni = pd.read_csv(Uni)
     Uni_num = st.sidebar.slider("#Rows Display", 5, min(100,len(Uni)))
@@ -51,7 +53,7 @@ if Uni is not None:
 
 
 st.write("""## Libretto""")
-Book = st.file_uploader("Choose a Lookup field")
+Book = st.file_uploader("Choose a Lookup field (.csv)")
 if Book is not None:
 
     Book = pd.read_csv(Book)
