@@ -14,11 +14,11 @@ with st.expander("To-Do-List"):
 st.write("""## Password Generator""")
 col1, col2, col3 = st.columns(3)
 with col1:
-    pw_case = st.text_input('SF Case Number','0')
+    pw_case = st.text_input('Case Number','0')
     pw_case = int(float(pw_case))
 with col2:
     pw_date = st.date_input(
-        "Report Create Date",
+        "Create Date",
         datetime.date(2022, 8, 1)).strftime("%Y%m%d")
     pw_date = int(pw_date)
 with col3:
