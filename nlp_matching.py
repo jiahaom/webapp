@@ -11,7 +11,7 @@ import torch
 # Title
 st.write("""# Recommendation Algorithm""")
 c = st.container()
-c.write(""" >
+c.write(""" 
 - This app could be used to find the most matched item for the 1st list from the 2nd list.
 - Instead of Ctrl/Command + F, the deep learning/neural network will use NLP to build a vector system, which could enable computers to understand inguistic similarity (synonym).
 - More example could be found on [Fish&Chips VS AMD chip](https://medium.com/@jiahao.meng/how-deep-learning-impacts-our-daily-work-nlp-for-text-matching-a20bc4a746dd)
