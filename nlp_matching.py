@@ -38,7 +38,7 @@ with st.expander("To-Do-List"):
 
 # File upload
 st.write("""## Uncertain work""")
-Uni = st.file_uploader("Choose a table that needs to match (.csv)")
+Uni = st.file_uploader("Choose a table that needs to match (.csv needed)")
 if Uni is not None:
     Uni = pd.read_csv(Uni)
     Uni_num = st.sidebar.slider("#Rows Display", 5, min(100,len(Uni)))
@@ -53,7 +53,7 @@ if Uni is not None:
 
 
 st.write("""## Libretto""")
-Book = st.file_uploader("Choose a Lookup field (.csv)")
+Book = st.file_uploader("Choose a Lookup field (.csv needed)")
 if Book is not None:
 
     Book = pd.read_csv(Book)
