@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 from io import StringIO
-import SentenceTransformer
+# import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 import time
 import numpy as np
