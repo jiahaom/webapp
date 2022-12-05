@@ -4,6 +4,12 @@ import datetime
 
 
 st.write("""# Password Manager""")
+st.write(
+        """
+-   This app is an easy-to-use revertible password generator.
+-   Due to the balance of forgetting and protection, passwords are generated from essential information.
+	    """
+    )
 with st.expander("To-Do-List"):
     st.markdown('''
     ✅Password Generator;
@@ -11,7 +17,7 @@ with st.expander("To-Do-List"):
     📌Excel Encryption;
 
     ''')
-st.write("""## Password Generator""")
+st.write("""## Password Generator""", help = 'Revertible Password')
 col1, col2, col3 = st.columns(3)
 with col1:
     pw_case = st.text_input('Case Number','0')
