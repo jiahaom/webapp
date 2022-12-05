@@ -9,25 +9,35 @@ import matplotlib.pyplot as plt
 import torch
 
 # Title
-st.write("""# Book Recommendation""")
+st.write("""# Recommendation Algorithm""")
 c = st.container()
-c.write("Description Test")
+c.write(""" 
+- This app could be used to find the most matched item for the 1st list from the 2nd list.
+- Instead of Ctrl/Command + F, the deep learning/neural network will use NLP to build a vector system, which could enable computers to understand inguistic similarity (synonym).
+- More example could be found on [Fish&Chips VS AMD chip](https://medium.com/@jiahao.meng/how-deep-learning-impacts-our-daily-work-nlp-for-text-matching-a20bc4a746dd)
+- Thanks [Alex](https://www.linkedin.com/in/alexander-lewis-25942282) and [Nelson](https://www.linkedin.com/in/nelson-chiu-43316b1a4)'s Ideas
+""")
 
 with st.expander("To-Do-List"):
     st.markdown('''
-    ✅Add Visualization,
+    ✅Add Visualization；
 
-    ✅Add Model Selection,
+    ✅Add Model Selection；
 
-    ✅Add To-Do-List,
+    ✅Add To-Do-List；
 
-    Publish App,
+    ✅Publish App；
+    
+    📌Optimaise Visualization;
+    
+    📌Add Matching Candidates;
+    
 
     ''')
 
 # File upload
-st.write("""## Uni List""")
-Uni = st.file_uploader("Choose a University list")
+st.write("""## Uncertain work""")
+Uni = st.file_uploader("Choose a table that needs to match")
 if Uni is not None:
     Uni = pd.read_csv(Uni)
     Uni_num = st.sidebar.slider("#Rows Display", 5, min(100,len(Uni)))
@@ -41,8 +51,8 @@ if Uni is not None:
 
 
 
-st.write("""## Book List""")
-Book = st.file_uploader("Choose a Book list")
+st.write("""## Libretto""")
+Book = st.file_uploader("Choose a Lookup field")
 if Book is not None:
 
     Book = pd.read_csv(Book)
@@ -214,3 +224,5 @@ if (Book is not None) and (Uni is not None):
                 file_name='Final_list.csv',
                 mime='text/csv',
             )
+            
+            
