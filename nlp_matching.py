@@ -2,7 +2,8 @@ import streamlit as st
 import pandas as pd
 from io import StringIO
 # import SentenceTransformer
-from sklearn.metrics.pairwise import cosine_similarity
+import sklearn
+# from sklearn.metrics.pairwise import cosine_similarity
 import time
 import numpy as np
 import matplotlib.pyplot as plt
@@ -173,7 +174,7 @@ if (Book is not None) and (Uni is not None):
 
             for i in Uni_embed:
                 # find the most similar vector
-                values = cosine_similarity([i], Book_embed).tolist()[0]
+                values = sklearn.metrics.pairwise.cosine_similarity([i], Book_embed).tolist()[0]
                 # obtain the index of the vector
                 max_index.append(values.index(max(values)))
                 # append similarity
