@@ -17,7 +17,7 @@ with st.expander("To-Do-List"):
     📌Excel Encryption;
 
     ''')
-st.write("""## Password Generator""", help = 'Revertible Password')
+st.write("""## Password Generator""")
 col1, col2, col3 = st.columns(3)
 with col1:
     pw_case = st.text_input('Case Number','0')
