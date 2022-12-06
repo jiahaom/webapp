@@ -6,8 +6,8 @@ import datetime
 st.write("""# Password Manager""")
 st.write(
         """
--   This app is an easy-to-use revertible password generator.
--   Due to the balance of forgetting and protection, passwords are generated from essential information.
+-   This app is an easy-to-use reversible password generator.
+-   Due to the balance between forgetting and protection, passwords are generated from essential information.
 	    """
     )
 with st.expander("To-Do-List"):
@@ -36,7 +36,9 @@ if pw:
     # temp_pw = hashlib.sha3_256(b'dsadas').hexdigest()
     temp_pw = str(hex(pw_case+pw_date+pw_author))
     temp_pw = hashlib.sha3_256(temp_pw.encode('utf-8')).hexdigest()
-    temp_pw = temp_pw[0:4] +'_'+ temp_pw[4:8]+'_'+ temp_pw[8:12]
+#     temp_pw = temp_pw[0:4] +'_'+ temp_pw[4:8]+'_'+ temp_pw[8:12]
+    temp_pw = temp_pw[0:4].title() +'_'+ temp_pw[4:8]+'_'+ temp_pw[8:12].title()
+	
     temp_pw = 'Your revertible Password is: \n' + str (temp_pw)
     st.info(temp_pw, icon = "ℹ️")
 
