@@ -24,7 +24,7 @@ with col1:
     pw_case = int(float(pw_case))
 with col2:
     pw_date = st.date_input(
-        "Create Date", help = 'For the file rather than case',
+        "File create Date",
         datetime.date(2022, 8, 1)).strftime("%Y%m%d")
     pw_date = int(pw_date)
 with col3:
