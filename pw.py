@@ -24,11 +24,11 @@ with col1:
     pw_case = int(float(pw_case))
 with col2:
     pw_date = st.date_input(
-        "Create Date",
+        "Create Date", help = 'For the file rather than case',
         datetime.date(2022, 8, 1)).strftime("%Y%m%d")
     pw_date = int(pw_date)
 with col3:
-    pw_author= st.text_input('Author Name', 'Guido van Rossum')
+    pw_author= st.text_input('Author Name', 'Guido van Rossum', help = 'Full name')
     pw_author= sum(list(pw_author.encode('utf-8')))
 
 pw = st.button('Generate Password')
