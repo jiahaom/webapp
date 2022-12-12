@@ -24,7 +24,7 @@ with col1:
 with col2:
     pw_date = st.date_input(
         "File create Date",
-        datetime.date(2022/12/12)).strftime("%Y%m%d")
+        datetime.date(2022,12,12)).strftime("%Y%m%d")
 
     pw_date = int(pw_date)
 with col3:
