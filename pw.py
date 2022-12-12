@@ -23,9 +23,10 @@ with col1:
     pw_case = st.text_input('Case Number','0')
     pw_case = int(float(pw_case))
 with col2:
+    today = date.today().strftime("%Y/%m/%d")
     pw_date = st.date_input(
         "File create Date",
-        datetime.date(2022, 8, 1)).strftime("%Y%m%d")
+        datetime.date(today)).strftime("%Y%m%d")
     pw_date = int(pw_date)
 with col3:
     pw_author= st.text_input('Author Name', 'Guido van Rossum', help = 'Full name on MS Teams')
