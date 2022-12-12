@@ -24,7 +24,7 @@ with col1:
     pw_case = int(float(pw_case))
 with col2:
     today = date.today().strftime("%Y%m%d")
-st.write (today)
+    st.write (today)
 #     pw_date = st.date_input(
 #         "File create Date",
 #         datetime.date(today)).strftime("%Y%m%d")
