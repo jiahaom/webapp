@@ -1,7 +1,6 @@
 import streamlit as st
 import hashlib
 import datetime
-from datetime import date
 
 st.write("""# Password Manager""")
 st.write(
@@ -23,14 +22,14 @@ with col1:
     pw_case = st.text_input('Case Number','0')
     pw_case = int(float(pw_case))
 with col2:
-    today = date.today().strftime("%Y%m%d")
+    today = datetime.date.today().strftime("%Y%m%d")
     st.write (today)
 #     pw_date = st.date_input(
 #         "File create Date",
 #         datetime.date(today)).strftime("%Y%m%d")
     pw_date = st.date_input(
         "File create Date",
-        datetime.date(2022/12/12)).strftime("%Y%m%d")
+        today).strftime("%Y%m%d")
 	
     pw_date = int(pw_date)
 with col3:
