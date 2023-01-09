@@ -3,8 +3,6 @@ import hashlib
 import datetime
 
 
-st run pw.py --server.enableCORS=false
-
 st.write("""# Password Manager""")
 st.write(
         """
