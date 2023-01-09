@@ -6,7 +6,7 @@ st.write("""# Password Manager""")
 st.write(
         """
 -   This app is an easy-to-use reversible password generator.
--   Due to the balance between forgetting and protection, passwords are generated from essential information.
+-   Due to the balance between forgetting and protection, password is generated from essential information.
 	    """
     )
 with st.expander("To-Do-List"):
@@ -44,3 +44,5 @@ if pw:
 
 st.write(""" ---""")
 # st.write("""## Excel Encryption""")
+
+
