@@ -51,16 +51,13 @@ if Uni is not None:
     st.sidebar.write ("""--- """)
 
 
-
 st.write("""## Libretto""")
 Book = st.file_uploader("Choose a Lookup field (.csv needed)")
 if Book is not None:
-
     Book = pd.read_csv(Book)
     Book_num = st.sidebar.slider("#Rows Display", 5, min(100,len(Book)))
     st.info('There are {0} rows in the list.'.format(len(Book)), icon="ℹ️")
     st.write(Book.head(Book_num))
-
 
     Book_opt = st.sidebar.multiselect(
         'Which column would you like to use',
