@@ -41,7 +41,7 @@ st.write("""## Uncertain work""")
 Uni = st.file_uploader("Choose a table that needs to match (.csv needed)")
 if Uni is not None:
     Uni = pd.read_csv(Uni)
-    Uni_num = st.sidebar.slider("#Rows Display", 5, min(100,len(Uni)))
+    Uni_num = st.sidebar.slider("#Rows Display 1", 5, min(100,len(Uni)))
     st.info('There are {0} rows in the list.'.format(len(Uni)), icon="ℹ️")
     st.write(Uni.head(Uni_num))
     Uni_opt = st.sidebar.multiselect(
@@ -55,7 +55,7 @@ st.write("""## Libretto""")
 Book = st.file_uploader("Choose a Lookup field (.csv needed)")
 if Book is not None:
     Book = pd.read_csv(Book)
-    Book_num = st.sidebar.slider("#Rows Display", 5, min(100,len(Book)))
+    Book_num = st.sidebar.slider("#Rows Display 2", 5, min(100,len(Book)))
     st.info('There are {0} rows in the list.'.format(len(Book)), icon="ℹ️")
     st.write(Book.head(Book_num))
 
