@@ -9,13 +9,9 @@ import matplotlib.pyplot as plt
 import torch
 
 
-# print out all widget IDs
-for key in st._get_report_ctx().widgets.keys():
-    st.write(key)
-
 # Title
 st.write("""# Recommendation Algorithm""")
-st.caption(""" 
+st.caption("""
 - This app could be used to find the most matched item for the 1st list from the 2nd list.
 - Instead of Ctrl/Command + F, the Deep Learning/Neural Network will build a vector system based on NLP, which could enable computers to understand inguistic similarity (synonym).
 - More explanations could be found on [Fish&Chips VS AMD chip](https://medium.com/@jiahao.meng/how-deep-learning-impacts-our-daily-work-nlp-for-text-matching-a20bc4a746dd)
@@ -31,13 +27,13 @@ with st.expander("To-Do-List"):
     ✅Add To-Do-List；
 
     ✅Publish App；
-    
+
     📌Excel Support;
-    
+
     📌Optimaise Visualization;
-    
+
     📌Add Matching Candidates;
-    
+
 
     ''')
 
@@ -65,7 +61,8 @@ if Book is not None:
     st.write(Book.head(Book_num))
     Book_opt = st.sidebar.multiselect(
         'Which column would you like to use',
-        Book.columns, help="could be single or multiple selection")
+        Book.columns, help="could be single and multiple selection")
+        
     col_opt = st.sidebar.multiselect(
         'Which Metadata would you keep?',
         Book.columns, help="could be single or multiple selection")
@@ -223,5 +220,3 @@ if (Book is not None) and (Uni is not None):
                 file_name='Final_list.csv',
                 mime='text/csv',
             )
-            
-            
