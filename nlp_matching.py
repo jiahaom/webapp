@@ -36,39 +36,67 @@ with st.expander("To-Do-List"):
 
     ''')
 
+# # File upload
+# st.write("""## Uncertain work""")
+# Uni = st.file_uploader("Choose a table that needs to match (.csv needed)")
+# if Uni is not None:
+#     Uni = pd.read_csv(Uni)
+#     Uni_num = st.sidebar.slider("#Rows Display 1", 5, min(100,len(Uni)))
+#     st.info('There are {0} rows in the list.'.format(len(Uni)), icon="ℹ️")
+#     st.write(Uni.head(Uni_num))
+#     Uni_opt = st.sidebar.multiselect(
+#         'Which column would you like to use',
+#         Uni.columns, help="could be single or multiple selection")
+#     st.write ("""--- """)
+#     st.sidebar.write ("""--- """)
+
+
+# st.write("""## Libretto""")
+# Book = st.file_uploader("Choose a Lookup field (.csv needed)")
+# if Book is not None:
+#     Book = pd.read_csv(Book)
+#     Book_num = st.sidebar.slider("#Rows Display 2", 5, min(100,len(Book)))
+#     st.info('There are {0} rows in the list.'.format(len(Book)), icon="ℹ️")
+#     st.write(Book.head(Book_num))
+
+#     Book_opt = st.sidebar.multiselect(
+#         'Which column would you like to use',
+#         Book.columns, help="could be single or multiple selection")
+#     col_opt = st.sidebar.multiselect(
+#         'Which Metadata would you keep?',
+#         Book.columns, help="could be single or multiple selection")
+#     st.sidebar.write ("""--- """)
+#     visual_check = st.checkbox('Need Visualization?')
+#     st.write ("""--- """)
+def upload_table(name, help_text):
+    st.write(f"## {name}")
+    file = st.file_uploader(f"Choose a {name} table (.csv needed)")
+    if file is not None:
+        try:
+            table = pd.read_csv(file)
+            num_rows = st.sidebar.slider(f"#Rows Display for {name}", 5, min(100,len(table)))
+            st.info(f"There are {len(table)} rows in the {name} table.", icon="ℹ️")
+            st.write(table.head(num_rows))
+            col_options = st.sidebar.multiselect(
+                'Which column(s) would you like to use?',
+                table.columns, help=help_text)
+            st.write("---")
+            return table, col_options
+        except Exception as e:
+            st.error(f"Error: {e}")
+
 # File upload
-st.write("""## Uncertain work""")
-Uni = st.file_uploader("Choose a table that needs to match (.csv needed)")
-if Uni is not None:
-    Uni = pd.read_csv(Uni)
-    Uni_num = st.sidebar.slider("#Rows Display 1", 5, min(100,len(Uni)))
-    st.info('There are {0} rows in the list.'.format(len(Uni)), icon="ℹ️")
-    st.write(Uni.head(Uni_num))
-    Uni_opt = st.sidebar.multiselect(
-        'Which column would you like to use',
-        Uni.columns, help="could be single or multiple selection")
-    st.write ("""--- """)
-    st.sidebar.write ("""--- """)
+uni_table, uni_col_options = upload_table("Uncertain work", "Could be single or multiple selection")
 
+# Libretto
+book_table, book_col_options = upload_table("Libretto", "Could be single or multiple selection")
+meta_col_options = st.sidebar.multiselect(
+    'Which Metadata would you keep?',
+    book_table.columns, help="Could be single or multiple selection")
 
-st.write("""## Libretto""")
-Book = st.file_uploader("Choose a Lookup field (.csv needed)")
-if Book is not None:
-    Book = pd.read_csv(Book)
-    Book_num = st.sidebar.slider("#Rows Display 2", 5, min(100,len(Book)))
-    st.info('There are {0} rows in the list.'.format(len(Book)), icon="ℹ️")
-    st.write(Book.head(Book_num))
-
-    Book_opt = st.sidebar.multiselect(
-        'Which column would you like to use',
-        Book.columns, help="could be single or multiple selection")
-    col_opt = st.sidebar.multiselect(
-        'Which Metadata would you keep?',
-        Book.columns, help="could be single or multiple selection")
-    st.sidebar.write ("""--- """)
-    visual_check = st.checkbox('Need Visualization?')
-    st.write ("""--- """)
-
+# Visualization
+visual_check = st.checkbox('Need Visualization?')
+st.write("---")
 
 
     if visual_check:
