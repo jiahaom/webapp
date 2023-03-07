@@ -8,6 +8,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import torch
 
+
+# print out all widget IDs
+for key in st._get_report_ctx().widgets.keys():
+    st.write(key)
+
 # Title
 st.write("""# Recommendation Algorithm""")
 st.caption(""" 
@@ -58,7 +63,6 @@ if Book is not None:
     Book_num = st.sidebar.slider("#Rows Display 2", 5, min(100,len(Book)))
     st.info('There are {0} rows in the list.'.format(len(Book)), icon="ℹ️")
     st.write(Book.head(Book_num))
-
     Book_opt = st.sidebar.multiselect(
         'Which column would you like to use',
         Book.columns, help="could be single or multiple selection")
